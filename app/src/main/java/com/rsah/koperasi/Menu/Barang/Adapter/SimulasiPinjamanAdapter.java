@@ -51,23 +51,36 @@ public class SimulasiPinjamanAdapter extends RecyclerView.Adapter<SimulasiPinjam
         String statusDesc = responsePaymentMethod.getStatusDesc();
         String tanggal = responsePaymentMethod.getModifiedDate();
         String desc = responsePaymentMethod.getDeskripsi();
-        String status = responsePaymentMethod.getStatus();
+
         int cicilke = position+1 ;
         String cicilan = ""+cicilke;
-        String jumlah = responsePaymentMethod.getJumlahBayar();
+
         String jatuhtempo = responsePaymentMethod.getTanggalBayar();
 
         Log.e(TAG, "onBindViewHolder: "+"ANGSURAN" );
 
         holder.cicilan.setText(cicilan);
-        if (status.equals("0")){
+
+        if (responsePaymentMethod.getStatus() == null){
             holder.jatuhTempo.setText("-");
         }else{
-            holder.jatuhTempo.setText(Helper.parseDate(jatuhtempo));
+            String status = responsePaymentMethod.getStatus();
+            if (status.equals("0")){
+                holder.jatuhTempo.setText("-");
+            }else{
+                holder.jatuhTempo.setText(Helper.parseDate(jatuhtempo));
+            }
+
+        }
+
+        if (responsePaymentMethod.getJumlahBayar() == null) {
+            holder.jumlah.setText("-");
+        }else{
+            String jumlah = responsePaymentMethod.getJumlahBayar();
+            holder.jumlah.setText(Helper.changeToRupiah2(jumlah));
         }
 
 
-        holder.jumlah.setText(Helper.changeToRupiah2(jumlah));
     }
 
     @Override

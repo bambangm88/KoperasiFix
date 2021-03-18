@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.cardview.widget.CardView;
@@ -63,6 +64,7 @@ public class PinjamanAdapter extends RecyclerView.Adapter<PinjamanAdapter.Adapte
 
 
         holder.jumlah_.setText(Helper.changeToRupiah2(jumlah));
+        holder.invoice.setText(position+1+". "+invoice);
 
         holder.date_.setText(Helper.parseDate(tgl_trf ));
 
@@ -88,8 +90,8 @@ public class PinjamanAdapter extends RecyclerView.Adapter<PinjamanAdapter.Adapte
 
 
 
-        TextView date_ , jumlah_ , status_ ;
-        LinearLayout card ;
+        TextView date_ , jumlah_ , status_ ,invoice;
+        RelativeLayout card ;
 
 
 
@@ -102,6 +104,7 @@ public class PinjamanAdapter extends RecyclerView.Adapter<PinjamanAdapter.Adapte
             jumlah_ = itemView.findViewById(R.id.tvjumlah);
             status_ = itemView.findViewById(R.id.tvstatus);
             card = itemView.findViewById(R.id.rootLayout);
+            invoice = itemView.findViewById(R.id.invoice);
 
         }
     }

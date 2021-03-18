@@ -46,6 +46,7 @@ import com.rsah.koperasi.Menu.Pinjaman.TrackPinjaman;
 import com.rsah.koperasi.Menu.Profile.Profile;
 import com.rsah.koperasi.Menu.Saldo.DetailSaldo;
 
+import com.rsah.koperasi.Menu.Simpanan.PencairanSimpanan;
 import com.rsah.koperasi.Menu.Simpanan.Simpanan;
 import com.rsah.koperasi.Menu.Simpanan.listSimpanan;
 import com.rsah.koperasi.Menu.VersionActivity;
@@ -77,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
 
     SessionManager sessionManager ;
     private RelativeLayout rlprogress ;
-    CardView cvSetting, cvPeserta , cvBarang , cvSaldo , cvPInjaman , cvKeluar , cvSimpanan , cv_shu ;
+    CardView cvSetting, cvPeserta , cvBarang , cvSaldo , cvPInjaman , cvKeluar , cvSimpanan , cv_shu ,cvPencairanSimpanan;
 
     private Context mContext;
     private ApiService API;
@@ -109,6 +110,7 @@ public class MainActivity extends AppCompatActivity {
         cvSimpanan= findViewById(R.id.cv_simpanan);
         cv_shu= findViewById(R.id.cv_shu);
         cvPInjaman= findViewById(R.id.cv_pinjaman);
+        cvPencairanSimpanan= findViewById(R.id.cv_pencairan_simpanan);
 
         iv_face = findViewById(R.id.iv_face);
 
@@ -179,6 +181,15 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 startActivity(new Intent(MainActivity.this, Pengaturan.class));
+
+            }
+        });
+
+        cvPencairanSimpanan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(MainActivity.this, PencairanSimpanan.class));
 
             }
         });

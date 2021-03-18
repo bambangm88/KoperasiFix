@@ -113,7 +113,6 @@ public class DetailPinjamanActivity extends AppCompatActivity {
 
     private void getDetailPinjaman(JsonProfile json){
 
-
         //pDialog.show();
         showProgress(true);
         Call<ResponsePinjaman> call = API.pinjamanDetail(json);
@@ -138,6 +137,11 @@ public class DetailPinjamanActivity extends AppCompatActivity {
                             TextView angsuran = findViewById(R.id.tv_angsuran);
                             TextView jatuhtempo = findViewById(R.id.tv_jatuh_tempo);
 
+                            TextView asuransi = findViewById(R.id.tv_asuransi);
+                            TextView jasa = findViewById(R.id.tv_jasa);
+                            TextView administrasi = findViewById(R.id.tv_administrasi);
+                            TextView besarPencairan = findViewById(R.id.tv_besarPencairan);
+
                             String statusdesc  = response.body().getResponse().getData().get(0).getStatusDesc();
                             String statusX  = response.body().getResponse().getData().get(0).getStatus();
 
@@ -149,9 +153,10 @@ public class DetailPinjamanActivity extends AppCompatActivity {
                             tenor.setText(response.body().getResponse().getData().get(0).getLamaAngsuran()+" Bulan");
                             angsuran.setText(Helper.changeToRupiah(response.body().getResponse().getData().get(0).getBesarAngsuran()));
 
+
                             Helper.colostatuspinjaman(statusX,statusdesc,pstatus,mContext);
 
-                            if (statusX.equals("6")){
+                            if (statusX.equals("3")){
                                 btnSimulasiCicilan.setVisibility(View.VISIBLE);
                             }
 

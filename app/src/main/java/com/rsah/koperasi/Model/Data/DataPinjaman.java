@@ -46,6 +46,52 @@ public class DataPinjaman {
     @SerializedName("JatuhTempo")
     private String JatuhTempo;
 
+    @SerializedName("fAsuransi")
+    private String fAsuransi;
+
+    @SerializedName("fAdministrasi")
+    private String fAdministrasi;
+
+    @SerializedName("fJasa")
+    private String fJasa;
+
+    @SerializedName("BesarPencairan")
+    private String BesarPencairan;
+
+
+    public String getfAsuransi() {
+        return fAsuransi;
+    }
+
+    public void setfAsuransi(String fAsuransi) {
+        this.fAsuransi = fAsuransi;
+    }
+
+    public String getfAdministrasi() {
+        return fAdministrasi;
+    }
+
+    public void setfAdministrasi(String fAdministrasi) {
+        this.fAdministrasi = fAdministrasi;
+    }
+
+    public String getfJasa() {
+        return fJasa;
+    }
+
+    public void setfJasa(String fJasa) {
+        this.fJasa = fJasa;
+    }
+
+    public String getBesarPencairan() {
+        return BesarPencairan;
+    }
+
+    public void setBesarPencairan(String besarPencairan) {
+        BesarPencairan = besarPencairan;
+    }
+
+
     public String getJatuhTempo() {
         return JatuhTempo;
     }

@@ -132,7 +132,11 @@ public class Helper {
 
     public static String changeToRupiah(String text)
     {
-        String rp = text.replace(".00","");
+        String rp_ = text.replace(".0000","");
+        String rp = rp_.replace(".00","");
+        if (rp.equals("")){
+            rp = "0" ;
+        }
         //conversi currency
         int number = Integer.parseInt(rp);
         String currency = NumberFormat.getNumberInstance(Locale.US).format(number);

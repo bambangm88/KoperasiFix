@@ -20,6 +20,7 @@
         <activity android:name=".Menu.Pinjaman.SimulasiCicilan" />
         <activity android:name=".Menu.Simpanan.CaraPembayaran" />
         <activity android:name=".Menu.Pinjaman.RecordPinjaman" />
+        <activity android:name=".Menu.Simpanan.PencairanSimpanan" />
         <activity android:name=".Menu.VersionActivity" />
         <activity android:name=".Menu.Simpanan.Simpanan" />
         <activity android:name=".Menu.Pinjaman.TrackPinjaman" />
