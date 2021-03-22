@@ -13,8 +13,10 @@ import com.rsah.koperasi.Model.Json.JsonRegister;
 import com.rsah.koperasi.Model.Json.JsonRegistrasiEmpID;
 import com.rsah.koperasi.Model.Json.JsonSaldo;
 import com.rsah.koperasi.Model.Json.JsonSimpananSukarela;
+import com.rsah.koperasi.Model.Json.JsonSimulasiPinjaman;
 import com.rsah.koperasi.Model.Json.JsonUbahPwd;
 import com.rsah.koperasi.Model.Json.JsonVersion;
+import com.rsah.koperasi.Model.Response.ResponseAngsuran;
 import com.rsah.koperasi.Model.Response.ResponseBarang;
 import com.rsah.koperasi.Model.Response.ResponseCaraPembayaran;
 import com.rsah.koperasi.Model.Response.ResponseCompany;
@@ -32,6 +34,7 @@ import com.rsah.koperasi.Model.Response.ResponseRegister;
 import com.rsah.koperasi.Model.Response.ResponseRegistrasiEmpID;
 import com.rsah.koperasi.Model.Response.ResponseSaldo;
 import com.rsah.koperasi.Model.Response.ResponseSimpanan;
+import com.rsah.koperasi.Model.Response.ResponseSimulasiPinjaman;
 import com.rsah.koperasi.Model.Response.ResponseUbahPwd;
 import com.rsah.koperasi.Model.Response.VersionResponse;
 import com.rsah.koperasi.Model.ResponseData;
@@ -57,6 +60,9 @@ public interface ApiService {
     @POST("koperasi/listCompany")
     Call<ResponseCompany> fetchCompany();
 
+
+    @GET("koperasi/listTenorAngsuran")
+    Call<ResponseAngsuran> fetchAngsuran();
 
     @Headers("Content-Type: application/json")
     @POST("koperasi/listJenisPinjaman")
@@ -92,6 +98,10 @@ public interface ApiService {
     @Headers("Content-Type: application/json")
     @POST("koperasi/UbahPwd")
     Call<ResponseUbahPwd> ubahPwd(@Body JsonUbahPwd body);
+
+    @Headers("Content-Type: application/json")
+    @POST("koperasi/simulasiPinjaman")
+    Call<ResponseSimulasiPinjaman> simulasiPinjaman(@Body JsonSimulasiPinjaman body);
 
     @GET("poe")
     Call<ResponseData> Token();

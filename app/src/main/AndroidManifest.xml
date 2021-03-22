@@ -16,6 +16,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".Menu.Pinjaman.SimulasiPinjaman"></activity>
+        <activity android:name=".Menu.Pinjaman.DetailSimulasiPinjaman"></activity>
         <activity android:name=".Menu.Pinjaman.DetailPinjamanActivity"></activity>
         <activity android:name=".Menu.Pinjaman.SimulasiCicilan" />
         <activity android:name=".Menu.Simpanan.CaraPembayaran" />

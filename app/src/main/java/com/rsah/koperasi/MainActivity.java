@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 import androidx.core.widget.NestedScrollView;
+import androidx.databinding.library.BuildConfig;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.app.Activity;
@@ -42,6 +43,7 @@ import com.rsah.koperasi.Helper.Helper;
 import com.rsah.koperasi.Menu.Barang.MenuBarang;
 import com.rsah.koperasi.Menu.Pengaturan;
 import com.rsah.koperasi.Menu.Pinjaman.MainPinjaman;
+import com.rsah.koperasi.Menu.Pinjaman.SimulasiPinjaman;
 import com.rsah.koperasi.Menu.Pinjaman.TrackPinjaman;
 import com.rsah.koperasi.Menu.Profile.Profile;
 import com.rsah.koperasi.Menu.Saldo.DetailSaldo;
@@ -78,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
 
     SessionManager sessionManager ;
     private RelativeLayout rlprogress ;
-    CardView cvSetting, cvPeserta , cvBarang , cvSaldo , cvPInjaman , cvKeluar , cvSimpanan , cv_shu ,cvPencairanSimpanan;
+    CardView cvSetting, cvPeserta , cvBarang , cvSaldo , cvPInjaman , cvKeluar , cvSimpanan , cv_shu ,cvPencairanSimpanan , cv_simulasi;
 
     private Context mContext;
     private ApiService API;
@@ -111,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
         cv_shu= findViewById(R.id.cv_shu);
         cvPInjaman= findViewById(R.id.cv_pinjaman);
         cvPencairanSimpanan= findViewById(R.id.cv_pencairan_simpanan);
+        cv_simulasi= findViewById(R.id.cv_simulasi);
 
         iv_face = findViewById(R.id.iv_face);
 
@@ -181,6 +184,15 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 startActivity(new Intent(MainActivity.this, Pengaturan.class));
+
+            }
+        });
+
+        cv_simulasi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(MainActivity.this, SimulasiPinjaman.class));
 
             }
         });
@@ -307,7 +319,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        cekVersion();
+        //cekVersion();
 
 
         refreshLayout.setColorSchemeResources(
