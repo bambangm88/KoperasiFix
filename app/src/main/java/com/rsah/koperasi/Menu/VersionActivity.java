@@ -16,9 +16,11 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.google.android.material.snackbar.Snackbar;
 import com.rsah.koperasi.BuildConfig;
 import com.rsah.koperasi.Constant.Constant;
+import com.rsah.koperasi.Constant.VersionChecker;
 import com.rsah.koperasi.Helper.Helper;
 import com.rsah.koperasi.Model.Json.JsonVersion;
 import com.rsah.koperasi.Model.Response.VersionResponse;
+import com.rsah.koperasi.Model.Version;
 import com.rsah.koperasi.R;
 import com.rsah.koperasi.api.ApiService;
 import com.rsah.koperasi.api.Server;
@@ -86,7 +88,11 @@ public class VersionActivity extends AppCompatActivity {
                         namaApp.setText(versionResponse.getResponse().getData().get(0).getNama());
                         developer.setText(versionResponse.getResponse().getData().get(0).getAuthor());
 
-                        cekVersion();
+                        //cekVersion();
+                        String versionName = BuildConfig.VERSION_NAME;
+                        TextView v = findViewById(R.id.tvversion);
+                        v.setText("Version "+versionName);
+
 
                     }else{
                         Helper.notifikasi_warning(message,VersionActivity.this);
@@ -126,9 +132,14 @@ public class VersionActivity extends AppCompatActivity {
         btnCekVersi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                cekVersion();
+                Check_version();
             }
         });
+    }
+
+    public void Check_version() {
+        VersionChecker versionChecker = new VersionChecker(this);
+        versionChecker.execute();
     }
 
     private void cekVersion() {

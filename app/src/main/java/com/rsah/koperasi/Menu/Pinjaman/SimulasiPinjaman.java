@@ -10,8 +10,10 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -61,6 +63,9 @@ public class SimulasiPinjaman extends AppCompatActivity {
 
     private List<DataAgsuran> AllCompanyList = new ArrayList<>();
     Spinner company ;
+
+    TextView besar_pinjaman , besar_pencairan ;
+    LinearLayout card_hitung ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

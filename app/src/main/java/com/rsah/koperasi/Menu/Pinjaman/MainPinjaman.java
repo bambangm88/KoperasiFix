@@ -1,9 +1,11 @@
 package com.rsah.koperasi.Menu.Pinjaman;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 
@@ -13,7 +15,7 @@ import com.rsah.koperasi.R;
 
 public class MainPinjaman extends AppCompatActivity {
 
-    LinearLayout pengajuan , histori ;
+    LinearLayout list_pinjaman , simulasi ;
 
 
     @Override
@@ -21,24 +23,46 @@ public class MainPinjaman extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_pinjaman);
 
-        pengajuan = findViewById(R.id.pengajuan);
-        histori = findViewById(R.id.histori);
+        list_pinjaman = findViewById(R.id.list_pinjaman);
+        simulasi = findViewById(R.id.simulasi_pinjaman);
 
-        pengajuan.setOnClickListener(new View.OnClickListener() {
+        list_pinjaman.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainPinjaman.this, Pengajuan.class));
+                startActivity(new Intent(MainPinjaman.this, TrackPinjaman.class));
             }
         });
 
-        histori.setOnClickListener(new View.OnClickListener() {
+        simulasi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               // startActivity(new Intent(MainPinjaman.this, Pengajuan.class));
+                startActivity(new Intent(MainPinjaman.this, SimulasiPinjaman.class));
             }
         });
 
+        Toolbar toolbar = findViewById(R.id.toolbar_pay);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
     }
+
+
+    //homeback
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                //Write your logic here
+
+                this.finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+    }
+
 }

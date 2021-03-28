@@ -39,6 +39,7 @@ import com.google.android.material.snackbar.Snackbar;
 import com.rsah.koperasi.Auth.Login;
 import com.rsah.koperasi.Auth.Register_Next_Simpan_New;
 import com.rsah.koperasi.Constant.Constant;
+import com.rsah.koperasi.Constant.VersionChecker;
 import com.rsah.koperasi.Helper.Helper;
 import com.rsah.koperasi.Menu.Barang.MenuBarang;
 import com.rsah.koperasi.Menu.Pengaturan;
@@ -219,7 +220,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(MainActivity.this, TrackPinjaman.class));
+                startActivity(new Intent(MainActivity.this, MainPinjaman.class));
 
             }
         });
@@ -555,6 +556,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        Check_version();
        // Helper.countDown(MainActivity.this);
+    }
+
+    public void Check_version() {
+        VersionChecker versionChecker = new VersionChecker(this);
+        versionChecker.execute();
     }
 }

@@ -2,6 +2,6 @@
     <string name="app_name">Koperasi</string>
     <string name="baseImageUrl">http://45.112.125.33/apiKoperasi/foto_pribadi/</string>
     <string name="baseImageProduct">http://45.112.125.33/apiKoperasi/product/</string>
-    <string name="version">V9.0</string>
+    <string name="version">-</string>
 
 </resources>

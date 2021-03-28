@@ -2,13 +2,14 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/gradientbg"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
 
 
-
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/Base.ThemeOverlay.AppCompat.Dark">
@@ -18,19 +19,19 @@
             android:layout_width="match_parent"
             android:layout_height="?android:attr/actionBarSize"
             android:layout_gravity="center"
-            android:background="#fff"
-            android:theme="@style/mytoolbar"
+            android:background="@drawable/gradientbg"
+            android:theme="@style/ToolbarTheme"
             app:elevation="4dp"
             app:popupTheme="@style/Base.Theme.AppCompat.Light.DarkActionBar">
 
             <TextView
-                android:textAlignment="center"
+
                 android:id="@+id/toolbar_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="PINJAMAN"
-                android:textColor="@color/colorUtama"
+                android:text="Pinjaman"
+                android:textColor="#fff"
                 android:textSize="20dp"
                 android:textStyle="bold" />
 
@@ -45,145 +46,150 @@
 
 
     <LinearLayout
-        android:layout_marginTop="80dp"
+        android:background="@drawable/ic_bg_one"
+        android:layout_marginTop="50dp"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
 
-        <androidx.cardview.widget.CardView
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
-            app:cardCornerRadius="10dp"
+        <LinearLayout
+            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="120dp"
+            android:orientation="vertical">
 
-            <LinearLayout
-                android:orientation="vertical"
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                app:cardCornerRadius="10dp">
 
                 <LinearLayout
-                    android:foreground="?android:attr/selectableItemBackground"
-                    android:clickable="true"
-                    android:id="@+id/pengajuan"
-                    android:orientation="vertical"
+                    android:id="@+id/list_pinjaman"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
 
                     <LinearLayout
-
-                        android:padding="10dp"
-                        android:orientation="horizontal"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.5">
 
                         <ImageView
-
-                            android:layout_width="30dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="20dp"
-                            android:src="@drawable/ic_baseline_keyboard_capslock_24" />
-
-                        <TextView
-                            android:textStyle="bold"
-                            android:layout_marginLeft="10dp"
-                            android:layout_gravity="center_vertical"
-                            android:text="Pengajuan"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-                        <RelativeLayout
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-
-                            <ImageView
-                                android:layout_marginRight="10dp"
-                                android:layout_alignParentRight="true"
-                                android:layout_marginLeft="20dp"
-                                android:src="@drawable/next"
-                                android:layout_width="40dp"
-                                android:layout_height="40dp"/>
-                        </RelativeLayout>
-
-
-
+                            android:layout_height="match_parent"
+                            android:layout_margin="25dp"
+                            android:src="@drawable/list_pinjaman" />
 
                     </LinearLayout>
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@color/divider"/>
-
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:foreground="?android:attr/selectableItemBackground"
-                    android:clickable="true"
-                    android:id="@+id/histori"
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-
                     <LinearLayout
-                        android:padding="10dp"
-                        android:orientation="horizontal"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <ImageView
-                            android:layout_width="30dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="20dp"
-                            android:src="@drawable/ic_baseline_list_24" />
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
 
                         <TextView
-                            android:textStyle="bold"
-                            android:layout_marginLeft="10dp"
-                            android:layout_gravity="center_vertical"
-                            android:text="Histori"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-
-                            <ImageView
-                                android:layout_marginRight="10dp"
-                                android:layout_alignParentRight="true"
-                                android:layout_marginLeft="20dp"
-                                android:src="@drawable/next"
-                                android:layout_width="40dp"
-                                android:layout_height="40dp"/>
-                        </RelativeLayout>
-
-
-
+                            android:layout_height="wrap_content"
+                            android:text="Daftar Pinjaman"
+                            android:textColor="@color/black"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
 
                     </LinearLayout>
 
-                    <View
+                    <LinearLayout
+                        android:gravity="center"
                         android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@color/divider"/>
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.8">
 
+                        <ImageView
+                            android:src="@drawable/ic_right"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
+            </androidx.cardview.widget.CardView>
 
 
 
-            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                app:cardCornerRadius="10dp">
+
+                <LinearLayout
+                    android:id="@+id/simulasi_pinjaman"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.5">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="25dp"
+                            android:src="@drawable/credit" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Simulasi Pinjaman"
+                            android:textColor="@color/black"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.8">
+
+                        <ImageView
+                            android:src="@drawable/ic_right"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
 
 
-        </androidx.cardview.widget.CardView>
 
-
+        </LinearLayout>
 
     </LinearLayout>
 
