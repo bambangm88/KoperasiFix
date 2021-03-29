@@ -21,6 +21,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.rsah.koperasi.Auth.Register_Next_Simpan_New;
 import com.rsah.koperasi.Constant.Constant;
+import com.rsah.koperasi.Helper.Helper;
 import com.rsah.koperasi.Model.Data.DataAgsuran;
 import com.rsah.koperasi.Model.Data.DataCompany;
 import com.rsah.koperasi.Model.Json.JsonSimulasiPinjaman;
@@ -64,7 +65,7 @@ public class SimulasiPinjaman extends AppCompatActivity {
     private List<DataAgsuran> AllCompanyList = new ArrayList<>();
     Spinner company ;
 
-    TextView besar_pinjaman , besar_pencairan ;
+    TextView besar_angsuran , besar_pencairan ;
     LinearLayout card_hitung ;
 
     @Override
@@ -79,6 +80,11 @@ public class SimulasiPinjaman extends AppCompatActivity {
         pwd_old = findViewById(R.id.et_jumlahPinjaman) ;
 
         btn_ubah = findViewById(R.id.btn_ubah);
+
+        card_hitung = findViewById(R.id.card_hasil);
+        besar_angsuran = findViewById(R.id.textbesarangsuran);
+        besar_pencairan = findViewById(R.id.textbesarpencairan);
+
         session = new SessionManager(getApplicationContext());
         company = findViewById(R.id.spangsuran);
         Toolbar toolbar = findViewById(R.id.toolbar_pay);
@@ -131,15 +137,18 @@ public class SimulasiPinjaman extends AppCompatActivity {
 
                         if (status.equals(Constant.ERR_200)) {
 
+                            card_hitung.setVisibility(View.VISIBLE);
+                            besar_angsuran.setText(""+Helper.changeToRupiah2(response.body().getResponse().getData().get(0).getBesar_angsuran()));
+                            besar_pencairan.setText(""+Helper.changeToRupiah2(response.body().getResponse().getData().get(0).getBesarPencairan()));
 
-
-                            Intent i = new Intent(mContext, DetailSimulasiPinjaman.class);
+                            //Helper.changeToRupiah2(bpencairan)
+                            /* Intent i = new Intent(mContext, DetailSimulasiPinjaman.class);
                             i.putExtra("asuransi", response.body().getResponse().getData().get(0).getfAsuransi());
                             i.putExtra("jasa", response.body().getResponse().getData().get(0).getfJasa());
                             i.putExtra("administrasi", response.body().getResponse().getData().get(0).getfAdministrasi());
                             i.putExtra("besarPencairan", response.body().getResponse().getData().get(0).getBesarPencairan());
                             i.putExtra("besarAngsuran", response.body().getResponse().getData().get(0).getBesar_angsuran());
-                            startActivity(i);
+                            startActivity(i);*/
 
 
 
