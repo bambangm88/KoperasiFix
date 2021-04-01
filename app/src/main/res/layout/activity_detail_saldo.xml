@@ -8,13 +8,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <ScrollView
+        android:id="@+id/mainscroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradientbg"
     android:orientation="vertical">
-
-
 
 
 
@@ -250,6 +259,32 @@
             android:background="#c0c0c0"/>
 
 
+        <TextView
+           android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:text="#Histori Simpanan Terakhir"
+            android:textColor="@color/colorPrimary"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvLastestSimpanan"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="70dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:paddingTop="16dp">
+            </androidx.recyclerview.widget.RecyclerView>
+
+        </RelativeLayout>
 
 
 
@@ -266,9 +301,11 @@
     </LinearLayout>
 
 
-    <include layout="@layout/progress_loading"/>
+
 
 
 </RelativeLayout>
-
+    </ScrollView>
+        <include layout="@layout/progress_loading"/>
+</RelativeLayout>
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

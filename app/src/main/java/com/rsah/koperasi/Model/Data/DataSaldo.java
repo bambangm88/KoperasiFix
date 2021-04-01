@@ -15,6 +15,51 @@ public class DataSaldo {
     @SerializedName("saldo_wajib")
     private String saldo_wajib;
 
+    @SerializedName("Tanggal")
+    private String Tanggal;
+
+    @SerializedName("Pokok")
+    private String Pokok;
+
+    @SerializedName("Wajib")
+    private String Wajib;
+
+    @SerializedName("Sukarela")
+    private String Sukarela;
+
+    public String getTanggal() {
+        return Tanggal;
+    }
+
+    public void setTanggal(String tanggal) {
+        Tanggal = tanggal;
+    }
+
+    public String getPokok() {
+        return Pokok;
+    }
+
+    public void setPokok(String pokok) {
+        Pokok = pokok;
+    }
+
+    public String getWajib() {
+        return Wajib;
+    }
+
+    public void setWajib(String wajib) {
+        Wajib = wajib;
+    }
+
+    public String getSukarela() {
+        return Sukarela;
+    }
+
+    public void setSukarela(String sukarela) {
+        Sukarela = sukarela;
+    }
+
+
     public String getSaldo_sukarela() {
         return saldo_sukarela;
     }

@@ -128,6 +128,9 @@ public interface ApiService {
     @POST("koperasi/saldo")
     Call<ResponseSaldo> getSaldo(@Body JsonSaldo body);
 
+    @Headers("Content-Type: application/json")
+    @POST("koperasi/lastestSimpanan")
+    Call<ResponseSaldo> getLastestSimpanan(@Body JsonSaldo body);
 
     @Headers("Content-Type: application/json")
     @POST("koperasi/Barang")
